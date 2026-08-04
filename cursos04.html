@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso: Culturas Religiosas - Educa Inclusão</title>
+    <style>
+        /* ===== VARIÁVEIS DE CORES ===== */
+        :root {
+            --azul-escuro: #1E3A8A; 
+            --azul-claro: #3B82F6; 
+            --branco: #FFFFFF;
+            --cinza-fundo: #F3F4F6; 
+            --cinza-texto: #4B5563;
+            --cinza-borda: #E5E7EB;
+            --cinza-video: #111827;
+        }
+
+        /* ===== RESET BÁSICO ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cinza-fundo);
+            color: var(--cinza-texto);
+            line-height: 1.8;
+        }
+
+        /* ===== CABEÇALHO ===== */
+        header {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header .voltar {
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        header .voltar:hover {
+            color: var(--azul-claro);
+        }
+
+        /* ===== CONTAINER PRINCIPAL DO CURSO ===== */
+        .conteudo-curso {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: var(--branco);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* ===== CABEÇALHO DA AULA ===== */
+        .aula-header h1 {
+            color: var(--azul-escuro);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .aula-header p {
+            font-size: 1.1rem;
+            color: #6B7280;
+            margin-bottom: 30px;
+        }
+
+        /* ===== ESPAÇO PARA A VÍDEO AULA ===== */
+        .video-container {
+            width: 100%;
+            background-color: var(--cinza-video);
+            aspect-ratio: 16 / 9;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--branco);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            background-color: var(--azul-claro);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* ===== ÁREA DE TEXTO ===== */
+        .material-leitura h2 {
+            color: var(--azul-escuro);
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--cinza-fundo);
+            padding-bottom: 10px;
+        }
+
+        .material-leitura p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .material-leitura ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .material-leitura li {
+            margin-bottom: 10px;
+        }
+
+        /* ===== ÁREA DE COMENTÁRIOS E RECOMENDAÇÕES ===== */
+        .comentarios-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid var(--cinza-borda);
+        }
+
+        .comentarios-section h3 {
+            color: var(--azul-escuro);
+            margin-bottom: 20px;
+        }
+
+        .caixa-comentario {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+            background-color: var(--cinza-fundo);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .caixa-comentario textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--cinza-borda);
+            border-radius: 5px;
+            resize: vertical;
+            min-height: 100px;
+            font-size: 1rem;
+        }
+
+        .btn-enviar {
+            background-color: var(--azul-claro);
+            color: var(--branco);
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            align-self: flex-end;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-enviar:hover {
+            background-color: var(--azul-escuro);
+        }
+
+        .comentario-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 45px;
+            height: 45px;
+            background-color: var(--azul-claro);
+            color: var(--branco);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .comentario-conteudo {
+            background-color: var(--cinza-fundo);
+            padding: 15px;
+            border-radius: 0 8px 8px 8px;
+            width: 100%;
+        }
+
+        .comentario-conteudo h4 {
+            color: var(--azul-escuro);
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .comentario-conteudo p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        footer {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .conteudo-curso {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="voltar">⬅ Voltar para Trilhas</a>
+        <h1>Educa Inclusão</h1>
+    </header>
+
+    <main class="conteudo-curso">
+        
+        <section class="aula-header">
+            <h1>Como atender diferentes culturas religiosas</h1>
+            <p>Módulo 4 - Respeito à Fé, Restrições Alimentares e Acomodações Específicas</p>
+        </section>
+
+        <section class="video-container">
+            <div class="play-btn">▶</div>
+            <p style="margin-top: 15px;">[ O vídeo da aula aparecerá aqui ]</p>
+        </section>
+
+        <section class="material-leitura">
+            <h2>Resumo da Aula</h2>
+            <p>Receber hóspedes de diferentes partes do mundo significa acolher uma rica diversidade de crenças e costumes. O respeito às práticas religiosas faz com que o hóspede se sinta em casa, seguro e compreendido. Um bom atendimento hoteleiro antecipa necessidades ligadas à fé de seus clientes.</p>
+            
+            <h2>Boas Práticas no Atendimento</h2>
+            <ul>
+                <li><strong>Restrições e Hábitos Alimentares:</strong> Muitas religiões têm regras rígidas sobre alimentação (como dietas Kosher no Judaísmo, Halal no Islamismo, ou restrição a carne de porco e bovina em outras crenças). Ofereça informações transparentes sobre os ingredientes no café da manhã e restaurante.</li>
+                <li><strong>Dias de Guarda e Descanso:</strong> Compreenda que certas religiões possuem dias de descanso rigoroso (como o Shabat). Durante esses períodos, o uso de eletrônicos pode ser proibido para o hóspede, exigindo adaptações, como oferecer chaves físicas ao invés de cartões magnéticos.</li>
+                <li><strong>Espaços e Tempos de Oração:</strong> Muitos hóspedes têm horários específicos de oração diária. Respeite as placas de "Não Perturbe", evite interrompê-los e, se possível, saiba informar onde ficam os centros religiosos (mesquitas, sinagogas, igrejas, templos) mais próximos.</li>
+                <li><strong>Cumprimentos e Contato Físico:</strong> Em algumas tradições, o contato físico (como um aperto de mão) entre pessoas de sexos opostos não é permitido. Se um hóspede hesitar ao estender a mão, aja com naturalidade, faça uma saudação verbal com um sorriso e não encare isso como falta de educação.</li>
+            </ul>
+
+            <h2>Dica de Ouro</h2>
+            <p>A comunicação prévia é a sua maior aliada. Um simples questionário no momento da reserva perguntando: "Você possui alguma restrição alimentar ou necessidade especial?" permite que o hotel se prepare com antecedência e surpreenda o hóspede positivamente.</p>
+        </section>
+
+        <section class="comentarios-section">
+            <h3>Comentários e Recomendações da Turma</h3>
+            
+            <div class="caixa-comentario">
+                <textarea placeholder="Deixe suas dúvidas, compartilhe histórias sobre diferenças culturais no atendimento ou sugira leituras..."></textarea>
+                <button class="btn-enviar">Enviar Comentário</button>
+            </div>
+
+            <div class="comentario-item">
+                <div class="avatar">P</div>
+                <div class="comentario-conteudo">
+                    <h4>Pedro Henrique</h4>
+                    <p>Muito útil! Começamos a sinalizar claramente quais pratos no café da manhã contêm carne de porco ou derivados, e isso facilitou enormemente a vida dos nossos hóspedes muçulmanos e judeus.</p>
+                </div>
+            </div>
+
+            <div class="comentario-item">
+                <div class="avatar">S</div>
+                <div class="comentario-conteudo">
+                    <h4>Sara Linhares</h4>
+                    <p>Sensacional a dica sobre as chaves físicas para o Shabat, eu realmente nunca tinha pensado nisso. Pequenos detalhes que fazem um atendimento de excelência.</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Educa Inclusão - Plataforma de Atendimento Inclusivo.</p>
+    </footer>
+
+</body>
+</html>
